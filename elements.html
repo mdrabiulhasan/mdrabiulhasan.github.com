@@ -165,6 +165,76 @@
 					4. GetX
 					</p>
 				</div>
+				</br>
+				<div class="container">
+					<h3 class="text-heading title_color">Why asynchronous code matters</h3>
+					<p class="sample-text">	
+					Asynchronous operations let your program complete work while waiting for another operation to finish.Here are some common asynchronous operations: Here are some common asynchronous operations:
+					</br>
+					<b>-Fetching data over a network.<b></br>
+					<b>-Writing to a database.<b></br>
+					<b>-Reading data from a file.<b>
+					</p>
+					</br>
+					<p>
+					Such asynchronous computations usually provide their result as a Future or, if the result has multiple parts, as a Stream. These computations introduce asynchrony into a program. To accommodate that initial asynchrony, other plain Dart functions also need to become asynchronous.
+					</p>
+					<h4>Key terms.<h4>
+					<p>
+					<b>Synchronous operation: A synchronous operation blocks other operations from executing until it completes.<b></br>
+					<b>synchronous function: A synchronous function only performs synchronous operations.<b></br>
+					<b>asynchronous operation: Once initiated, an asynchronous operation allows other operations to execute before it completes.<b>
+					<b>asynchronous function: An asynchronous function performs at least one asynchronous operation and can also perform synchronous operations.<b>
+					</p>
+				</div>
+				<div class="container">
+					<h3 class="text-heading title_color">What is a future?</h3>
+					<p class="sample-text">
+						A future represents the result of an asynchronous operation, and can have two states: uncompleted or completed.		
+                 					
+					</p>
+					<p>Note: Uncompleted is a Dart term referring to the state of a future before it has produced a value.
+					</p>
+					<p>
+					<h4>Uncompleted<h4>
+					
+When you call an asynchronous function, it returns an uncompleted future. That future is waiting for the function’s asynchronous operation to finish or to throw an error.
+
+<h4>Completed:<h4>
+If the asynchronous operation succeeds, the future completes with a value. Otherwise, it completes with an error.
+
+<h4>Completing with a value:<h4>
+A future of type Future<T> completes with a value of type T. For example, a future with type Future<String> produces a string value. If a future doesn’t produce a usable value, then the future’s type is Future<void>.
+
+<h4>Completing with an error:<h4>
+If the asynchronous operation performed by the function fails for any reason, the future completes with an error.
+
+<h4>Example: Introducing futures<h4>
+In the following example, fetchUserOrder() returns a future that completes after printing to the console. Because it doesn’t return a usable value, fetchUserOrder() has the type Future<void>. Before you run the example, try to predict which will print first: “Large Latte” or “Fetching user order…”.
+
+</p>
+<p>Future<void> fetchUserOrder() {
+  // Imagine that this function is fetching user info from another service or database.
+  return Future.delayed(const Duration(seconds: 2), () => print('Large Latte'));
+}
+
+void main() {
+  fetchUserOrder();
+  print('Fetching user order...');
+}</p>
+				</div></br>
+				<div class="container">
+					<h3 class="text-heading title_color">What is stream in flutter</h3>
+					<p class="sample-text">
+						A stream is a sequence of asynchronous events. It is like an asynchronous Iterable—where, instead of getting the next event when you ask for it, the stream tells you that there is an event when it is ready.
+						</br>
+						There are two kinds of streams:</br>
+						<b>-single subscription<b></br>
+					<b>- or broadcast.<b></br>
+					</p>
+
+				</div>
+				</br>
 			</section>
 
 			<!-- End Sample Area -->
